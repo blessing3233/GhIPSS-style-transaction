@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f6f7">
+    <title>Sign in | GhIPSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="login-page">
+        <section class="login-card" aria-label="Login form">
+            <a class="brand" href="dashboard.html" aria-label="GhIPSS home">
+                <span class="brand-logo-frame">
+                    <img src="ghipss-logo.jpeg" alt="GhIPSS">
+                </span>
+            </a>
+
+            <h1>Welcome back!</h1>
+            <p class="subtitle">Please sign in to continue to your account.</p>
+
+            <form class="login-form">
+                <div class="field-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="field-group">
+                    <div class="label-row">
+                        <label for="password">Password</label>
+                        <a href="#" aria-label="Forgot password">Forgot?</a>
+                    </div>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <label class="remember-me" for="remember">
+                    <input type="checkbox" id="remember" name="remember">
+                    <span>Remember me</span>
+                </label>
+
+                <button type="submit">Log In</button>
+            </form>
+
+            <p class="signup-text">Need an account? <a href="#">Sign up</a></p>
+        </section>
+    </main>
+</body>
+</html>
