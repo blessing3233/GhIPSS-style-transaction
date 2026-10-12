@@ -19,6 +19,7 @@
 }
 
 html {
+    overflow-x: clip;
     scroll-behavior: smooth;
 }
 
@@ -843,6 +844,212 @@ select:focus-visible {
     padding: 18px 19px 0;
 }
 
+.users-panel {
+    margin-top: 16px;
+}
+
+.settlements-panel,
+.settings-panel {
+    margin-top: 16px;
+}
+
+.settlement-row {
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) auto auto auto;
+    align-items: center;
+    gap: 18px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.settlement-row > div {
+    display: grid;
+    gap: 4px;
+}
+
+.settlement-row > div strong,
+.settlement-amount {
+    color: #34414b;
+    font-size: 10px;
+}
+
+.settlement-row > div small {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.settlement-details {
+    border: 0;
+    background: transparent;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.settings-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.settings-form label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #58636b;
+    font-size: 10px;
+}
+
+.settings-form input {
+    accent-color: var(--primary);
+}
+
+.settings-form .primary-btn {
+    margin-left: auto;
+}
+
+.settings-feedback,
+.demo-notice {
+    color: #626d76;
+    font-size: 10px;
+}
+
+.demo-notice {
+    margin: -10px 0 16px;
+    padding: 10px 12px;
+    border: 1px solid #dfe5e9;
+    border-radius: 7px;
+    background: #edf2f6;
+}
+
+.demo-notice[hidden] {
+    display: none;
+}
+
+.action-dialog {
+    width: min(440px, calc(100% - 32px));
+    max-height: min(80vh, 620px);
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--ink);
+    box-shadow: 0 18px 60px rgba(17, 35, 52, 0.22);
+}
+
+.action-dialog::backdrop {
+    background: rgba(16, 31, 45, 0.42);
+    backdrop-filter: blur(2px);
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+.dialog-header h2 {
+    margin: 0;
+    font-family: "Manrope", "DM Sans", sans-serif;
+    font-size: 16px;
+}
+
+.dialog-close {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 6px;
+    background: #f0f2f4;
+    color: #52606a;
+    cursor: pointer;
+    font-size: 21px;
+    line-height: 1;
+}
+
+.dialog-content {
+    padding-top: 14px;
+    color: #647168;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.dialog-content p {
+    margin: 0 0 10px;
+}
+
+.dialog-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.dialog-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.dialog-list {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dialog-list li {
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+}
+
+.dialog-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 14px;
+    margin: 0;
+}
+
+.dialog-details dt {
+    color: #89949b;
+}
+
+.dialog-details dd {
+    margin: 0;
+    color: #34414b;
+    font-weight: 600;
+}
+
+.users-search {
+    margin: 12px 0;
+}
+
+.users-search input:disabled {
+    cursor: wait;
+}
+
+.users-message {
+    margin: 12px 0;
+    color: #7c858c;
+    font-size: 10px;
+}
+
+.users-error {
+    color: #bf6953;
+}
+
+.users-error[hidden] {
+    display: none;
+}
+
 .transactions-heading {
     display: flex;
     align-items: center;
@@ -1108,6 +1315,11 @@ tbody tr[hidden] {
     cursor: default;
 }
 
+.pagination button:not(:disabled):hover {
+    border-color: #d9e1e7;
+    background: #f4f6f8;
+}
+
 .pagination .current-page {
     border-color: #d9e1e7;
     background: #edf2f6;
@@ -1276,6 +1488,19 @@ tbody tr[hidden] {
         grid-template-columns: 1fr;
     }
 
+    .settlement-row {
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+    }
+
+    .settlement-details {
+        justify-self: end;
+    }
+
+    .settings-form .primary-btn {
+        margin-left: 0;
+    }
+
     .channels-panel {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1311,15 +1536,15 @@ tbody tr[hidden] {
     }
 
     .brand-logo-frame {
-        width: 104px;
+        width: 90px;
         max-width: none;
     }
 
     .side-nav {
         width: auto;
         grid-auto-flow: column;
-        grid-auto-columns: 37px;
-        gap: 4px;
+        grid-auto-columns: 24px;
+        gap: 2px;
         margin: 0;
     }
 
@@ -1334,7 +1559,6 @@ tbody tr[hidden] {
         border-radius: 3px 3px 0 0;
     }
 
-    .nav-item:nth-child(n + 4),
     .sidebar-bottom {
         display: none;
     }

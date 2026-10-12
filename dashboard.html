@@ -27,6 +27,10 @@
                     Transactions
                     <span class="nav-count">8</span>
                 </a>
+                <a class="nav-item" href="#users-section">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 5.5a3 3 0 0 1 0 5.8M17 14a5 5 0 0 1 3.5 4.8"/></svg>
+                    Users
+                </a>
                 <a class="nav-item" href="#channels">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M3.5 9h17M7 14h3"/></svg>
                     Payment channels
@@ -39,6 +43,10 @@
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V9m7 11V4m7 16v-7"/></svg>
                     Reports
                 </a>
+                <a class="nav-item settings-link" href="#settings">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.2 1-1.2 2-1.5-.6a8 8 0 0 1-1.4.8l-.3 1.6h-2.4l-.3-1.6a8 8 0 0 1-1.5-.8l-1.5.6-1.2-2 1.2-1.1a7 7 0 0 1 0-1.7l-1.2-1.1 1.2-2 1.5.6a8 8 0 0 1 1.5-.8l.3-1.6h2.4l.3 1.6a8 8 0 0 1 1.4.8l1.5-.6 1.2 2-1.2 1.1a7 7 0 0 1 0 1.7Z"/></svg>
+                    Settings
+                </a>
             </nav>
 
             <div class="sidebar-bottom">
@@ -47,10 +55,6 @@
                     <div><strong>Network status</strong><small>Demo environment</small></div>
                     <span class="network-check" aria-hidden="true">✓</span>
                 </div>
-                <a class="nav-item settings-link" href="#settings">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.2 1-1.2 2-1.5-.6a8 8 0 0 1-1.4.8l-.3 1.6h-2.4l-.3-1.6a8 8 0 0 1-1.5-.8l-1.5.6-1.2-2 1.2-1.1a7 7 0 0 1 0-1.7l-1.2-1.1 1.2-2 1.5.6a8 8 0 0 1 1.5-.8l.3-1.6h2.4l.3 1.6a8 8 0 0 1 1.4.8l1.5-.6 1.2 2-1.2 1.1a7 7 0 0 1 0 1.7Z"/></svg>
-                    Settings
-                </a>
                 <div class="profile-card">
                     <div class="avatar">GA</div>
                     <div class="profile-copy"><strong>Gladys Amoah</strong><small>Operations admin</small></div>
@@ -64,25 +68,25 @@
                 <div class="breadcrumb"><span>Workspace</span><span class="crumb-divider">/</span><strong>Overview</strong></div>
                 <div class="topbar-actions">
                     <span class="today-label"><span class="live-dot"></span>Sample data</span>
-                    <button class="icon-button notification-button" type="button" aria-label="Notifications">
+                    <button class="icon-button notification-button" type="button" aria-label="Notifications" aria-haspopup="dialog">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
                         <span class="notification-dot"></span>
                     </button>
-                    <button class="avatar top-avatar" type="button" aria-label="Open account menu">GA</button>
+                    <button class="avatar top-avatar account-button" type="button" aria-label="Open account menu" aria-haspopup="dialog">GA</button>
                 </div>
             </header>
 
             <div class="page-content">
                 <section class="page-heading">
                     <div>
-                        <p class="eyebrow">MONDAY, 24 NOVEMBER 2025</p>
+                        <p class="eyebrow">SAMPLE REPORT</p>
                         <h1>Payments overview</h1>
                         <p class="page-subtitle">Here’s what’s happening across your payment network today.</p>
                     </div>
                     <div class="heading-actions">
                         <label class="date-select">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7 3v4m10-4v4M3.5 10h17"/></svg>
-                            <select aria-label="Reporting period">
+                            <select id="report-range" aria-label="Reporting period">
                                 <option>Today, 24 Nov</option>
                                 <option>Last 7 days</option>
                                 <option>Last 30 days</option>
@@ -95,6 +99,7 @@
                         </button>
                     </div>
                 </section>
+                <p class="demo-notice" id="range-notice" role="status" aria-live="polite" hidden>These figures are sample data; changing the reporting period does not load live results.</p>
 
                 <section class="stats" aria-label="Today's transaction summary">
                     <article class="stat-card">
@@ -149,7 +154,7 @@
                     <article class="panel channels-panel" id="channels">
                         <div class="panel-header">
                             <div><p class="section-kicker">PAYMENT MIX</p><h2>By channel</h2></div>
-                            <button class="more-button" type="button" aria-label="More channel options">···</button>
+                            <button class="more-button" type="button" aria-label="Payment channel details" aria-haspopup="dialog">···</button>
                         </div>
                         <div class="donut-area">
                             <div class="donut-chart" role="img" aria-label="Mobile Money 52 percent, GhIPSS Instant Pay 26 percent, cards 15 percent, other 7 percent"><div class="donut-center"><strong>18.5k</strong><span>payments</span></div></div>
@@ -166,7 +171,7 @@
                 <section class="panel transactions-panel" id="transactions">
                     <div class="transactions-heading">
                         <div><p class="section-kicker">ACTIVITY</p><h2>Recent transactions</h2><p class="transaction-subtitle">Monitor and manage your latest payments.</p></div>
-                        <a class="view-all" href="#transactions">View all transactions <span aria-hidden="true">→</span></a>
+                        <a class="view-all" href="#transactions" id="view-all-transactions">View all transactions <span aria-hidden="true">→</span></a>
                     </div>
                     <div class="table-toolbar">
                         <label class="search-box">
@@ -201,11 +206,81 @@
                         </table>
                         <p class="empty-state" id="empty-state" hidden>No transactions match these filters.</p>
                     </div>
-                    <div class="table-footer"><span id="result-count">Showing 5 of 18,492 transactions</span><div class="pagination" aria-label="Pagination"><button type="button" disabled aria-label="Previous page">←</button><button class="current-page" type="button" aria-current="page">1</button><button type="button" aria-label="Page 2">2</button><button type="button" aria-label="Page 3">3</button><span>…</span><button type="button" aria-label="Next page">→</button></div></div>
+                    <div class="table-footer">
+                        <span id="result-count" role="status" aria-live="polite"></span>
+                        <nav class="pagination" id="transaction-pagination" aria-label="Transaction pages"></nav>
+                    </div>
+                </section>
+                <section class="panel users-panel" id="users-section" aria-labelledby="users-heading">
+                    <div class="transactions-heading">
+                        <div>
+                            <p class="section-kicker">DIRECTORY</p>
+                            <h2 id="users-heading">Users</h2>
+                        </div>
+                    </div>
+
+                    <p id="loading-message" class="users-message" role="status" aria-live="polite">Loading users...</p>
+                    <p id="error-message" class="users-message users-error" role="alert" hidden></p>
+                    <label class="search-box users-search">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+                        <input type="search" id="user-search" placeholder="Search users..." aria-label="Search users" disabled>
+                    </label>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">City</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body"></tbody>
+                        </table>
+                        <p id="users-empty-message" class="empty-state" hidden>No users match your search.</p>
+                    </div>
+                </section>
+                <section class="panel settlements-panel" id="settlements" aria-labelledby="settlements-heading">
+                    <div class="transactions-heading">
+                        <div>
+                            <p class="section-kicker">PAYOUTS</p>
+                            <h2 id="settlements-heading">Recent settlements</h2>
+                            <p class="transaction-subtitle">Example settlement activity for this demo.</p>
+                        </div>
+                    </div>
+                    <div class="settlement-row">
+                        <div><strong>Daily merchant settlement</strong><small>24 Nov · GhIPSS Instant Pay</small></div>
+                        <strong class="settlement-amount">GH₵ 42,580.00</strong>
+                        <span class="status-pill status-success"><i></i>Completed</span>
+                        <button class="settlement-details" type="button" aria-label="View daily merchant settlement details">Details</button>
+                    </div>
+                </section>
+                <section class="panel settings-panel" id="settings" aria-labelledby="settings-heading">
+                    <div class="transactions-heading">
+                        <div>
+                            <p class="section-kicker">PREFERENCES</p>
+                            <h2 id="settings-heading">Settings</h2>
+                            <p class="transaction-subtitle">Choose which demo alerts appear in your preferences.</p>
+                        </div>
+                    </div>
+                    <form id="settings-form" class="settings-form">
+                        <label><input type="checkbox" name="transaction-alerts" checked> Transaction alerts</label>
+                        <label><input type="checkbox" name="settlement-alerts" checked> Settlement alerts</label>
+                        <button class="primary-btn" type="submit">Save preferences</button>
+                    </form>
+                    <p class="settings-feedback" id="settings-feedback" role="status" aria-live="polite"></p>
                 </section>
                 <footer class="page-footer"><span>© 2025 GhIPSS</span><span>Demo dashboard · Sample transaction data</span></footer>
             </div>
         </main>
     </div>
+    <dialog class="action-dialog" id="action-dialog" aria-labelledby="dialog-title">
+        <div class="dialog-header">
+            <h2 id="dialog-title"></h2>
+            <button class="dialog-close" type="button" aria-label="Close dialog">×</button>
+        </div>
+        <div class="dialog-content" id="dialog-content"></div>
+    </dialog>
+    <script src="dashboard.js"></script>
 </body>
 </html>

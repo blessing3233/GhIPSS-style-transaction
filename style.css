@@ -183,3 +183,10 @@ button:hover {
         padding: 24px 20px;
     }
 }
+
+.error-message {
+    display: block;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
