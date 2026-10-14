@@ -1,286 +1,141 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f5f6f7">
-    <title>Payments overview | GhIPSS</title>
+    <title>GhIPSS Transaction Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
 </head>
-<body>
-    <div class="app-shell">
-        <aside class="sidebar">
-            <a class="brand" href="#overview" aria-label="GhIPSS home">
-                <span class="brand-logo-frame">
-                    <img src="ghipss-logo.jpeg" alt="GhIPSS">
-                </span>
-            </a>
 
-            <div class="workspace-label">WORKSPACE</div>
-            <nav class="side-nav" aria-label="Main navigation">
-                <a class="nav-item active" href="#overview" aria-current="page">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
-                    Overview
-                </a>
-                <a class="nav-item" href="#transactions">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2.5"/></svg>
-                    Transactions
-                    <span class="nav-count">8</span>
-                </a>
-                <a class="nav-item" href="#users-section">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 5.5a3 3 0 0 1 0 5.8M17 14a5 5 0 0 1 3.5 4.8"/></svg>
-                    Users
-                </a>
-                <a class="nav-item" href="#channels">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M3.5 9h17M7 14h3"/></svg>
-                    Payment channels
-                </a>
-                <a class="nav-item" href="#settlements">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M6 4h12M6 12h12M8 16h8M10 20h4"/></svg>
-                    Settlements
-                </a>
-                <a class="nav-item" href="#reports">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V9m7 11V4m7 16v-7"/></svg>
-                    Reports
-                </a>
-                <a class="nav-item settings-link" href="#settings">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.2 1-1.2 2-1.5-.6a8 8 0 0 1-1.4.8l-.3 1.6h-2.4l-.3-1.6a8 8 0 0 1-1.5-.8l-1.5.6-1.2-2 1.2-1.1a7 7 0 0 1 0-1.7l-1.2-1.1 1.2-2 1.5.6a8 8 0 0 1 1.5-.8l.3-1.6h2.4l.3 1.6a8 8 0 0 1 1.4.8l1.5-.6 1.2 2-1.2 1.1a7 7 0 0 1 0 1.7Z"/></svg>
-                    Settings
-                </a>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>My Dashboard</h1>
+    </header>
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <img src="ghipss-logo.jpeg" alt="GhIPSS Logo" class="logo">
+
+            <p class="menu-heading">WORKSPACE</p>
+
+            <nav>
+                <ul>
+                    <li><a class="active" href="#">Overview</a></li>
+                    <li><a href="#">Transactions</a></li>
+                    <li><a href="#">Users</a></li>
+                    <li><a href="#">Payment Channels</a></li>
+                    <li><a href="#">Settlements</a></li>
+                    <li><a href="#">Reports</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
             </nav>
 
-            <div class="sidebar-bottom">
-                <div class="network-card">
-                    <span class="network-indicator"></span>
-                    <div><strong>Network status</strong><small>Demo environment</small></div>
-                    <span class="network-check" aria-hidden="true">✓</span>
+            <!-- Network status -->
+            <div class="network-status">
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>Network Status</strong>
+                    <p>Demo environment</p>
                 </div>
-                <div class="profile-card">
-                    <div class="avatar">GA</div>
-                    <div class="profile-copy"><strong>Gladys Amoah</strong><small>Operations admin</small></div>
-                    <button class="profile-menu" type="button" aria-label="Account options">···</button>
-                </div>
+
+                <span class="check">✓</span>
             </div>
+
         </aside>
 
-        <main class="main-content" id="overview">
-            <header class="topbar">
-                <div class="breadcrumb"><span>Workspace</span><span class="crumb-divider">/</span><strong>Overview</strong></div>
-                <div class="topbar-actions">
-                    <span class="today-label"><span class="live-dot"></span>Sample data</span>
-                    <button class="icon-button notification-button" type="button" aria-label="Notifications" aria-haspopup="dialog">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
-                        <span class="notification-dot"></span>
-                    </button>
-                    <button class="avatar top-avatar account-button" type="button" aria-label="Open account menu" aria-haspopup="dialog">GA</button>
+        <!-- Main content -->
+        <main>
+
+            <section class="welcome-section">
+                <h2>Dashboard Overview</h2>
+                <p>Welcome to my dashboard.</p>
+            </section>
+
+            <!-- Summary cards -->
+            <section>
+                <h2>Transaction Summary</h2>
+
+                <div class="summary-grid">
+
+                    <div class="summary-card">
+                        <h3>Total Transactions</h3>
+                        <p>1,250</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Successful Transactions</h3>
+                        <p>1,180</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Failed Transactions</h3>
+                        <p>70</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Transaction Value</h3>
+                        <p>₵85,400</p>
+                    </div>
+
                 </div>
-            </header>
+            </section>
 
-            <div class="page-content">
-                <section class="page-heading">
-                    <div>
-                        <p class="eyebrow">SAMPLE REPORT</p>
-                        <h1>Payments overview</h1>
-                        <p class="page-subtitle">Here’s what’s happening across your payment network today.</p>
-                    </div>
-                    <div class="heading-actions">
-                        <label class="date-select">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7 3v4m10-4v4M3.5 10h17"/></svg>
-                            <select id="report-range" aria-label="Reporting period">
-                                <option>Today, 24 Nov</option>
-                                <option>Last 7 days</option>
-                                <option>Last 30 days</option>
-                            </select>
-                            <span class="select-chevron" aria-hidden="true">⌄</span>
-                        </label>
-                        <button class="primary-btn" type="button" id="export-report">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v3h16v-3"/></svg>
-                            Export report
-                        </button>
-                    </div>
-                </section>
-                <p class="demo-notice" id="range-notice" role="status" aria-live="polite" hidden>These figures are sample data; changing the reporting period does not load live results.</p>
+            <!-- Registered users -->
+            <section>
+                <h2>Registered Users</h2>
 
-                <section class="stats" aria-label="Today's transaction summary">
-                    <article class="stat-card">
-                        <div class="stat-head"><span class="stat-icon icon-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v12H4zM4 10h16M8 15h3"/></svg></span><span class="trend positive">↗ 12.8%</span></div>
-                        <p class="stat-label">Total transaction value</p>
-                        <h2>GH₵ 2,486,920<span class="decimal">.50</span></h2>
-                        <p class="stat-foot">vs. previous day</p>
-                    </article>
-                    <article class="stat-card">
-                        <div class="stat-head"><span class="stat-icon icon-blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="8" cy="7" r="1"/><circle cx="15" cy="12" r="1"/></svg></span><span class="trend positive">↗ 8.2%</span></div>
-                        <p class="stat-label">Transactions processed</p>
-                        <h2>18,492</h2>
-                        <p class="stat-foot">vs. previous day</p>
-                    </article>
-                    <article class="stat-card">
-                        <div class="stat-head"><span class="stat-icon icon-violet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span><span class="trend positive">↗ 0.6%</span></div>
-                        <p class="stat-label">Success rate</p>
-                        <h2>98.74<span class="unit">%</span></h2>
-                        <p class="stat-foot">Target: 98.00%</p>
-                    </article>
-                    <article class="stat-card">
-                        <div class="stat-head"><span class="stat-icon icon-amber"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5m0 4h.01M10.3 4.8 2.9 18a1.8 1.8 0 0 0 1.6 2.7h15a1.8 1.8 0 0 0 1.6-2.7l-7.4-13.2a1.9 1.9 0 0 0-3.4 0Z"/></svg></span><span class="trend negative">↘ 2.1%</span></div>
-                        <p class="stat-label">Failed transactions</p>
-                        <h2>233</h2>
-                        <p class="stat-foot">1.26% of total volume</p>
-                    </article>
-                </section>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
 
-                <section class="analytics-grid" aria-label="Payment analytics">
-                    <article class="panel volume-panel" id="reports">
-                        <div class="panel-header">
-                            <div><p class="section-kicker">TRANSACTION ACTIVITY</p><h2>Volume over time</h2></div>
-                            <div class="chart-legend"><span><i class="legend-dot"></i>Successful</span><span><i class="legend-dot failed-dot"></i>Failed</span></div>
-                        </div>
-                        <div class="chart-summary"><strong>18,492</strong><span class="chart-summary-label">transactions today</span><span class="chart-summary-change">+8.2%</span></div>
-                        <div class="chart-wrap">
-                            <div class="y-labels" aria-hidden="true"><span>2.0k</span><span>1.5k</span><span>1.0k</span><span>500</span><span>0</span></div>
-                            <svg class="volume-chart" viewBox="0 0 760 210" role="img" aria-labelledby="chart-title chart-description" preserveAspectRatio="none">
-                                <title id="chart-title">Today's transaction volume</title>
-                                <desc id="chart-description">Transaction volume rises through the morning, peaks around midday, and levels off in the afternoon.</desc>
-                                <defs><linearGradient id="area-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#173f66" stop-opacity=".17"/><stop offset="100%" stop-color="#173f66" stop-opacity="0"/></linearGradient></defs>
-                                <g class="grid-lines"><path d="M0 14H760M0 57H760M0 100H760M0 143H760M0 186H760"/></g>
-                                <path class="chart-area" d="M0 163 C35 158 45 145 76 149 S120 154 152 132 S196 136 228 119 S273 126 304 103 S349 108 380 76 S425 93 456 61 S501 70 532 48 S577 64 608 41 S653 52 684 31 S729 39 760 22 V186 H0Z"/>
-                                <path class="chart-line" d="M0 163 C35 158 45 145 76 149 S120 154 152 132 S196 136 228 119 S273 126 304 103 S349 108 380 76 S425 93 456 61 S501 70 532 48 S577 64 608 41 S653 52 684 31 S729 39 760 22"/>
-                                <path class="failed-line" d="M0 179 C48 176 55 172 76 174 S122 169 152 170 S202 164 228 166 S278 160 304 162 S353 157 380 158 S425 153 456 155 S503 151 532 152 S579 148 608 150 S654 146 684 147 S730 143 760 144"/>
-                                <circle class="chart-point" cx="532" cy="48" r="4"/>
-                            </svg>
-                        </div>
-                        <div class="x-labels" aria-hidden="true"><span>06:00</span><span>08:00</span><span>10:00</span><span>12:00</span><span>14:00</span><span>16:00</span><span>18:00</span></div>
-                    </article>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Akosua Mensah</td>
+                                <td>akosua@example.com</td>
+                                <td><span class="active-status">Active</span></td>
+                            </tr>
 
-                    <article class="panel channels-panel" id="channels">
-                        <div class="panel-header">
-                            <div><p class="section-kicker">PAYMENT MIX</p><h2>By channel</h2></div>
-                            <button class="more-button" type="button" aria-label="Payment channel details" aria-haspopup="dialog">···</button>
-                        </div>
-                        <div class="donut-area">
-                            <div class="donut-chart" role="img" aria-label="Mobile Money 52 percent, GhIPSS Instant Pay 26 percent, cards 15 percent, other 7 percent"><div class="donut-center"><strong>18.5k</strong><span>payments</span></div></div>
-                        </div>
-                        <ul class="channel-list">
-                            <li><span class="channel-name"><i class="channel-dot momo"></i>Mobile Money</span><strong>52% <small>9,616</small></strong></li>
-                            <li><span class="channel-name"><i class="channel-dot gh-link"></i>GhIPSS Instant Pay</span><strong>26% <small>4,808</small></strong></li>
-                            <li><span class="channel-name"><i class="channel-dot card"></i>Bank cards</span><strong>15% <small>2,774</small></strong></li>
-                            <li><span class="channel-name"><i class="channel-dot other"></i>Other</span><strong>7% <small>1,294</small></strong></li>
-                        </ul>
-                    </article>
-                </section>
+                            <tr>
+                                <td>2</td>
+                                <td>Kwame Boateng</td>
+                                <td>kwame@example.com</td>
+                                <td><span class="inactive-status">Inactive</span></td>
+                            </tr>
 
-                <section class="panel transactions-panel" id="transactions">
-                    <div class="transactions-heading">
-                        <div><p class="section-kicker">ACTIVITY</p><h2>Recent transactions</h2><p class="transaction-subtitle">Monitor and manage your latest payments.</p></div>
-                        <a class="view-all" href="#transactions" id="view-all-transactions">View all transactions <span aria-hidden="true">→</span></a>
-                    </div>
-                    <div class="table-toolbar">
-                        <label class="search-box">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
-                            <input id="transaction-search" type="search" placeholder="Search transactions..." aria-label="Search transactions">
-                        </label>
-                        <div class="filter-actions">
-                            <label class="filter-select"><span class="visually-hidden">Filter by payment channel</span><select id="channel-filter"><option value="">All channels</option><option>Mobile Money</option><option>GhIPSS Instant Pay</option><option>Bank card</option><option>GhanaPay</option></select><span aria-hidden="true">⌄</span></label>
-                            <label class="filter-select"><span class="visually-hidden">Filter by transaction status</span><select id="status-filter"><option value="">All status</option><option>Successful</option><option>Pending</option><option>Failed</option></select><span aria-hidden="true">⌄</span></label>
-                        </div>
-                    </div>
-                    <div class="table-wrap">
-                        <table>
-                            <thead><tr><th scope="col">Transaction ID</th><th scope="col">Customer</th><th scope="col">Channel</th><th scope="col">Date &amp; time</th><th scope="col">Amount</th><th scope="col">Status</th><th scope="col" aria-label="Details"></th></tr></thead>
-                            <tbody id="transaction-rows">
-                                <tr data-status="Successful" data-channel="Mobile Money">
-                                    <td><span class="transaction-id">PT-24011-00842</span></td><td><span class="customer-cell"><span class="customer-avatar avatar-sage">KM</span><span><strong>Kofi Mensah</strong><small>kofi.mensah@email.com</small></span></span></td><td><span class="channel-cell"><i class="channel-dot momo"></i>Mobile Money</span></td><td>24 Nov, 14:32</td><td class="amount">GH₵ 1,250.00</td><td><span class="status-pill status-success"><i></i>Successful</span></td><td><button class="row-menu" type="button" aria-label="Details for PT-24011-00842">···</button></td>
-                                </tr>
-                                <tr data-status="Successful" data-channel="GhIPSS Instant Pay">
-                                    <td><span class="transaction-id">PT-24011-00841</span></td><td><span class="customer-cell"><span class="customer-avatar avatar-lilac">AA</span><span><strong>Akosua Asante</strong><small>akosua.a@email.com</small></span></span></td><td><span class="channel-cell"><i class="channel-dot gh-link"></i>GhIPSS Instant Pay</span></td><td>24 Nov, 14:29</td><td class="amount">GH₵ 480.50</td><td><span class="status-pill status-success"><i></i>Successful</span></td><td><button class="row-menu" type="button" aria-label="Details for PT-24011-00841">···</button></td>
-                                </tr>
-                                <tr data-status="Pending" data-channel="Bank card">
-                                    <td><span class="transaction-id">PT-24011-00840</span></td><td><span class="customer-cell"><span class="customer-avatar avatar-peach">EO</span><span><strong>Emmanuel Owusu</strong><small>emmanuel.o@email.com</small></span></span></td><td><span class="channel-cell"><i class="channel-dot card"></i>Bank card</span></td><td>24 Nov, 14:25</td><td class="amount">GH₵ 3,200.00</td><td><span class="status-pill status-pending"><i></i>Pending</span></td><td><button class="row-menu" type="button" aria-label="Details for PT-24011-00840">···</button></td>
-                                </tr>
-                                <tr data-status="Failed" data-channel="Mobile Money">
-                                    <td><span class="transaction-id">PT-24011-00839</span></td><td><span class="customer-cell"><span class="customer-avatar avatar-blue">NB</span><span><strong>Nana Boateng</strong><small>nana.boateng@email.com</small></span></span></td><td><span class="channel-cell"><i class="channel-dot momo"></i>Mobile Money</span></td><td>24 Nov, 14:18</td><td class="amount">GH₵ 95.00</td><td><span class="status-pill status-failed"><i></i>Failed</span></td><td><button class="row-menu" type="button" aria-label="Details for PT-24011-00839">···</button></td>
-                                </tr>
-                                <tr data-status="Successful" data-channel="GhanaPay">
-                                    <td><span class="transaction-id">PT-24011-00838</span></td><td><span class="customer-cell"><span class="customer-avatar avatar-yellow">YA</span><span><strong>Yaw Agyeman</strong><small>yaw.agyeman@email.com</small></span></span></td><td><span class="channel-cell"><i class="channel-dot other"></i>GhanaPay</span></td><td>24 Nov, 14:12</td><td class="amount">GH₵ 725.00</td><td><span class="status-pill status-success"><i></i>Successful</span></td><td><button class="row-menu" type="button" aria-label="Details for PT-24011-00838">···</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p class="empty-state" id="empty-state" hidden>No transactions match these filters.</p>
-                    </div>
-                    <div class="table-footer">
-                        <span id="result-count" role="status" aria-live="polite"></span>
-                        <nav class="pagination" id="transaction-pagination" aria-label="Transaction pages"></nav>
-                    </div>
-                </section>
-                <section class="panel users-panel" id="users-section" aria-labelledby="users-heading">
-                    <div class="transactions-heading">
-                        <div>
-                            <p class="section-kicker">DIRECTORY</p>
-                            <h2 id="users-heading">Users</h2>
-                        </div>
-                    </div>
+                            <tr>
+                                <td>3</td>
+                                <td>Abena Owusu</td>
+                                <td>abena@example.com</td>
+                                <td><span class="active-status">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-                    <p id="loading-message" class="users-message" role="status" aria-live="polite">Loading users...</p>
-                    <p id="error-message" class="users-message users-error" role="alert" hidden></p>
-                    <label class="search-box users-search">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
-                        <input type="search" id="user-search" placeholder="Search users..." aria-label="Search users" disabled>
-                    </label>
+            <!-- Footer -->
+            <footer>
+                <p>GhIPSS-Style Dashboard | Learning Project</p>
+            </footer>
 
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">City</th>
-                                </tr>
-                            </thead>
-                            <tbody id="users-table-body"></tbody>
-                        </table>
-                        <p id="users-empty-message" class="empty-state" hidden>No users match your search.</p>
-                    </div>
-                </section>
-                <section class="panel settlements-panel" id="settlements" aria-labelledby="settlements-heading">
-                    <div class="transactions-heading">
-                        <div>
-                            <p class="section-kicker">PAYOUTS</p>
-                            <h2 id="settlements-heading">Recent settlements</h2>
-                            <p class="transaction-subtitle">Example settlement activity for this demo.</p>
-                        </div>
-                    </div>
-                    <div class="settlement-row">
-                        <div><strong>Daily merchant settlement</strong><small>24 Nov · GhIPSS Instant Pay</small></div>
-                        <strong class="settlement-amount">GH₵ 42,580.00</strong>
-                        <span class="status-pill status-success"><i></i>Completed</span>
-                        <button class="settlement-details" type="button" aria-label="View daily merchant settlement details">Details</button>
-                    </div>
-                </section>
-                <section class="panel settings-panel" id="settings" aria-labelledby="settings-heading">
-                    <div class="transactions-heading">
-                        <div>
-                            <p class="section-kicker">PREFERENCES</p>
-                            <h2 id="settings-heading">Settings</h2>
-                            <p class="transaction-subtitle">Choose which demo alerts appear in your preferences.</p>
-                        </div>
-                    </div>
-                    <form id="settings-form" class="settings-form">
-                        <label><input type="checkbox" name="transaction-alerts" checked> Transaction alerts</label>
-                        <label><input type="checkbox" name="settlement-alerts" checked> Settlement alerts</label>
-                        <button class="primary-btn" type="submit">Save preferences</button>
-                    </form>
-                    <p class="settings-feedback" id="settings-feedback" role="status" aria-live="polite"></p>
-                </section>
-                <footer class="page-footer"><span>© 2025 GhIPSS</span><span>Demo dashboard · Sample transaction data</span></footer>
-            </div>
         </main>
+
     </div>
-    <dialog class="action-dialog" id="action-dialog" aria-labelledby="dialog-title">
-        <div class="dialog-header">
-            <h2 id="dialog-title"></h2>
-            <button class="dialog-close" type="button" aria-label="Close dialog">×</button>
-        </div>
-        <div class="dialog-content" id="dialog-content"></div>
-    </dialog>
-    <script src="dashboard.js"></script>
+
 </body>
 </html>
